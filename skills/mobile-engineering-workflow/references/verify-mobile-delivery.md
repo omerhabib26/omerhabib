@@ -13,3 +13,5 @@ Read requirements and contracts independently of implementation.
 5. Run tests; preserve exact commands, counts, failures, screenshots/traces where supported, and tool limitations.
 6. Check logs and analytics payloads for tokens and personal data.
 Return a requirement-to-test matrix and evidence. Never mark Android emulator tests passed unless an emulator actually ran. Read references/test-matrix.md for the example coverage and commands.
+
+For Android unit/Flow testing and Compose test boundaries, read references/android-testing.md. Preserve the established JUnit and mocking stack unless migration is part of the request.

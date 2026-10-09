@@ -147,6 +147,14 @@ Copy selected skill folders into the skill directory supported by your coding ag
 
 ## References
 
+### Inspiration and attribution
+
+[Lennon Petrick's android-engineering-skills](https://github.com/lennonpetrick/android-engineering-skills) inspired the separation of Android architecture, reactive implementation patterns, and testing guidance. The reference is MIT-licensed, copyright 2026 Lennon Spirlandelli. The instructions and demo in this project were authored independently; upstream source files are not vendored.
+
+This playbook extends that organization to API contracts, safe offline writes, PR creation, Conventional Commits, GitHub Actions, UI/API testing, and telemetry-based debugging. It preserves existing project conventions rather than mandating one DI library or JUnit version. See the [Android design reference](skills/design-mobile-contracts/references/android-design.md) and [Android testing reference](skills/verify-mobile-delivery/references/android-testing.md).
+
+The upstream README also points to [Google's Android skills](https://github.com/android/skills) for focused Android tooling tasks. Those skills are not bundled or claimed as this project's implementation.
+
 - [GitHub Actions documentation](https://docs.github.com/en/actions)
 - [Playwright web server configuration](https://playwright.dev/docs/test-webserver)
 - [Android Compose compiler configuration](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler)

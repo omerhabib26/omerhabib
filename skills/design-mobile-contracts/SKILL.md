@@ -13,3 +13,5 @@ Inspect UI, state holder, repository, storage, and network boundaries. Locate ex
 5. Identify the atomic invariant and whether protection is process-local or durable across instances.
 6. Draw a focused Mermaid architecture or sequence diagram; distinguish implemented components from planned extensions.
 Return repository contracts, a state-transition table, an API example, the diagram, and trade-offs. Do not add infrastructure without a requirement. Prefer integer minor units for money and explicit currency support.
+
+For Android package boundaries, Compose lifecycle collection, and reactive state, read references/android-design.md. Adapt the guidance to the existing architecture and distinguish recommended extensions from implemented demo behavior.
