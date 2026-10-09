@@ -1,0 +1,16 @@
+{
+  "name": "ai-mobile-engineering-playbook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node demo/server.mjs",
+    "test": "node --test tests/api.test.mjs tests/commit.test.mjs",
+    "lint": "node scripts/check.mjs",
+    "test:ui": "playwright test",
+    "build": "node scripts/package.mjs",
+    "check:commit": "node scripts/conventional-commit.mjs"
+  },
+  "devDependencies": { "@playwright/test": "1.56.1" }
+}

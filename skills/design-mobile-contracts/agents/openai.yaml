@@ -1,0 +1,4 @@
+interface:
+  display_name: "Define mobile state and API contracts before coding"
+  short_description: "Define mobile state and API contracts before coding"
+  default_prompt: "Use $design-mobile-contracts for the relevant engineering task and report verification evidence."

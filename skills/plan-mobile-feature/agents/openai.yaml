@@ -1,0 +1,4 @@
+interface:
+  display_name: "Turn mobile requirements into verifiable delivery plans"
+  short_description: "Turn mobile requirements into verifiable delivery plans"
+  default_prompt: "Use $plan-mobile-feature for the relevant engineering task and report verification evidence."

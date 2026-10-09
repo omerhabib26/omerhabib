@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test mobile behavior and API integration end to end"
+  short_description: "Test mobile behavior and API integration end to end"
+  default_prompt: "Use $verify-mobile-delivery for the relevant engineering task and report verification evidence."

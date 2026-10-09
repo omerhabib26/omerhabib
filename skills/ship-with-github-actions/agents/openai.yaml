@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deliver reviewed changes through GitHub CI workflows"
+  short_description: "Deliver reviewed changes through GitHub CI workflows"
+  default_prompt: "Use $ship-with-github-actions for the relevant engineering task and report verification evidence."
