@@ -1,0 +1,35 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Expense Claims Demo", "version": "0.1.0", "description": "Local educational API; in-memory persistence and fixed demo token." },
+  "servers": [{ "url": "http://127.0.0.1:3000" }],
+  "security": [{ "demoBearer": [] }],
+  "paths": {
+    "/health": { "get": { "security": [], "responses": { "200": { "description": "Healthy" } } } },
+    "/claims": {
+      "get": { "responses": { "200": { "description": "Claims in this server process" }, "401": { "$ref": "#/components/responses/Unauthorized" } } },
+      "post": {
+        "parameters": [{ "in": "header", "name": "Idempotency-Key", "required": true, "schema": { "type": "string", "pattern": "^[a-zA-Z0-9_-]{8,128}$" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ClaimInput" } } } },
+        "responses": {
+          "201": { "description": "New claim", "headers": { "X-Request-Id": { "schema": { "type": "string" } } }, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ClaimResult" } } } },
+          "200": { "description": "Same payload replayed; same claim ID", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ClaimResult" } } } },
+          "400": { "description": "INVALID_JSON or INVALID_IDEMPOTENCY_KEY" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": { "description": "IDEMPOTENCY_CONFLICT: reused key with a different normalized payload" },
+          "413": { "description": "PAYLOAD_TOO_LARGE: body exceeds 4096 bytes" },
+          "422": { "description": "INVALID_CLAIM: unsupported currency or invalid amount" },
+          "500": { "description": "INTERNAL_ERROR" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "demoBearer": { "type": "http", "scheme": "bearer" } },
+    "responses": { "Unauthorized": { "description": "UNAUTHORIZED", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } } },
+    "schemas": {
+      "ClaimInput": { "type": "object", "required": ["amountMinor", "currency"], "properties": { "amountMinor": { "type": "integer", "minimum": 1, "maximum": 100000000 }, "currency": { "type": "string", "enum": ["EUR", "USD", "PKR"] } } },
+      "ClaimResult": { "type": "object", "required": ["claim", "replayed"], "properties": { "replayed": { "type": "boolean" }, "claim": { "type": "object", "required": ["id", "amountMinor", "currency", "status"], "properties": { "id": { "type": "string", "format": "uuid" }, "amountMinor": { "type": "integer" }, "currency": { "type": "string" }, "status": { "const": "submitted" } } } } },
+      "Error": { "type": "object", "required": ["error"], "properties": { "error": { "type": "object", "required": ["code", "requestId"], "properties": { "code": { "type": "string" }, "requestId": { "type": "string", "format": "uuid" } } } } }
+    }
+  }
+}

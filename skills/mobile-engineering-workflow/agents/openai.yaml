@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mobile Engineering Workflow"
+  short_description: "Plan, test, review, and ship mobile features"
+  default_prompt: "Use $mobile-engineering-workflow to deliver a tested mobile feature with API contracts and CI evidence."

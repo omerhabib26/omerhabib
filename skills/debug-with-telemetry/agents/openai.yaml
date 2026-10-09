@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investigate failures using sanitized correlated evidence"
+  short_description: "Investigate failures using sanitized correlated evidence"
+  default_prompt: "Use $debug-with-telemetry for the relevant engineering task and report verification evidence."
